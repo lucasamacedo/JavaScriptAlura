@@ -17,12 +17,17 @@ const podeComprar = idadeComprador >= 18 || estaAcompanhado;
 
 let i = 0;
 let destinoExiste = false;
-while (i < 3){
+
+for(let i = 0; i < 3; i++){
     if(listaDeDestinos[i] == destino){
         destinoExiste = true;
-        break;
     }
-    i++;
+}
+console.log("Destino existe: ", destinoExiste);
+
+if(podeComprar && destinoExiste){
+    console.log("Boa viagem!");
+}else{
+    console.log("Desculpe, ocorreu um erro!");
 }
 
-console.log("Destino existe: ", destinoExiste);
