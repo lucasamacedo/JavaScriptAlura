@@ -15,7 +15,7 @@ contaCorrenteLucas.cliente = cliente1;
 contaCorrenteLucas.depositar(1000);
 
 const conta2 = new ContaCorrente();
-conta2.cliente = cliente2;
+conta2.cliente = cliente1;
 conta2.agencia = 102;
 
 contaCorrenteLucas.transferir(100, conta2);
