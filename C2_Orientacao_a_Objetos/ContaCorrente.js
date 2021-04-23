@@ -1,5 +1,7 @@
 export class ContaCorrente{
     agencia;
+    cliente;
+
     // #saldo - Proposta de privatização de atributo
     _saldo = 0;
 
@@ -9,8 +11,14 @@ export class ContaCorrente{
             return valor
         }
     }
+
     depositar(valor){
         if(valor <= 0) return;
         this._saldo += valor;        
+    }
+
+    transferir(valor, conta){
+        const valorSacado = this.sacar(valor);
+        conta.depositar(valorSacado);
     }
 }
