@@ -6,6 +6,7 @@ export class ContaCorrente{
     _cliente;
     _saldo = 0;
 
+
     set cliente(novoValor){
         if(novoValor instanceof Cliente){
             this._cliente = novoValor;
@@ -18,6 +19,11 @@ export class ContaCorrente{
 
     get saldo(){
         return this._saldo;
+    }
+
+    constructor(cliente, agencia){
+        this.cliente = cliente;
+        this.agencia = agencia;
     }
 
     sacar(valor){
