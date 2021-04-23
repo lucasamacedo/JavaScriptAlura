@@ -1,11 +1,22 @@
-const cliente1Nome = "Lucas";
-const cliente1CPF = 1112233309;
-const cliente1Agencia = 1001;
-const cliente1Saldo = 0;
+class Cliente{
+    nome;
+    cpf;
+    agencia;
+    saldo;
+}
 
-const cliente2Nome = "Alice";
-const cliente2CPF = 8882233309;
-const cliente2Agencia = 1001;
-const cliente2Saldo = 0;
+const cliente1 = new Cliente();
+const cliente2 = new Cliente();
 
-console.log(cliente1Nome);
+cliente1.nome = "Lucas";
+cliente1.cpf = 1112233309;
+cliente1.agencia = 1001;
+cliente1.saldo = 0;
+
+cliente2.nome = "Alice";
+cliente2.cpf = 8882233309;
+cliente2.agencia = 1001;
+cliente2.saldo = 0;
+
+console.log(cliente1);
+console.log(cliente2);
