@@ -12,5 +12,6 @@ const conta2 = new ContaCorrente(cliente2, 102);
 
 contaCorrenteLucas.transferir(100, conta2);
 
-console.log(contaCorrenteLucas);
-console.log(conta2);
+// console.log(contaCorrenteLucas);
+// console.log(conta2);
+console.log(ContaCorrente.numeroDeContas);

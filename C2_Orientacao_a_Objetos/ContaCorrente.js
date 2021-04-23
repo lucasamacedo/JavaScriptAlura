@@ -1,6 +1,7 @@
 import { Cliente } from "./Cliente.js";
 
 export class ContaCorrente{
+    static numeroDeContas = 0;
     agencia;
     // #saldo - Proposta de privatização de atributo
     _cliente;
@@ -24,6 +25,7 @@ export class ContaCorrente{
     constructor(cliente, agencia){
         this.cliente = cliente;
         this.agencia = agencia;
+        ContaCorrente.numeroDeContas++;
     }
 
     sacar(valor){
