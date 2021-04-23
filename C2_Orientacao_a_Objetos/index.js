@@ -5,11 +5,18 @@ class Cliente{
 
 class ContaCorrente{
     agencia;
-    saldo;
+    // #saldo - Proposta de privatização de atributo
+    _saldo = 0;
 
     sacar(valor){
-        if(this.saldo >= valorSacado){
-            this.saldo -= valorSacado;
+        if(this._saldo >= valorSacado){
+            this._saldo -= valorSacado;
+        }
+    }
+    depositar(valor){
+        if(valor > 0){
+            this._saldo += valor;
+            console.log(this._saldo);
         }
     }
 }
@@ -24,14 +31,9 @@ cliente2.cpf = 8882233309;
 
 const contaCorrenteLucas = new ContaCorrente();
 contaCorrenteLucas.agencia = 1001;
-contaCorrenteLucas.saldo = 0;
-console.log(contaCorrenteLucas.saldo);
-contaCorrenteLucas.saldo += 100;
-console.log(contaCorrenteLucas.saldo);
 
+contaCorrenteLucas.depositar(225);
 let valorSacado = 75;
 contaCorrenteLucas.sacar(valorSacado);
-console.log(contaCorrenteLucas.saldo);
 
-console.log(cliente1);
-console.log(cliente2);
+console.log(contaCorrenteLucas);
