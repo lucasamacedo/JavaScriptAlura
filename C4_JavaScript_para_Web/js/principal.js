@@ -1,7 +1,7 @@
 var titulo = document.querySelector(".titulo");
 titulo.textContent = "Aparecida Nutricionista";
 
-//var paciente = document.querySelector("#primeiro-paciente");
+// var pacientes = document.querySelector("#tabela-pacientes").querySelectorAll(".paciente"); // da certo, só nao sei se é do jeito que to pensando
 var pacientes = document.querySelectorAll(".paciente");
 var paciente;
 
@@ -31,6 +31,8 @@ for(var i = 0; i < pacientes.length; i++){
     }
 }
 
-
-
+botaoAdicionar = document.querySelector("#adicionar-paciente");
+botaoAdicionar.addEventListener("click", function(){
+    console.log("Oi, cliquei no botão!");
+});
 //console.log(IMC);
