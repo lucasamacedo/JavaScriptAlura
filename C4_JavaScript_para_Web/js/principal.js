@@ -42,12 +42,18 @@ botaoAdicionar.addEventListener("click", function(event){
     var gordura = form.gordura.value;
 
     var pacienteTr = document.createElement("tr");
+    pacienteTr.classList.add("paciente");
 
     var nomeTd = document.createElement("td");
+    nomeTd.classList.add("info-nome");
     var pesoTd = document.createElement("td");
+    pesoTd.classList.add("info-peso");
     var alturaTd = document.createElement("td");
+    alturaTd.classList.add("info-altura");
     var gorduraTd = document.createElement("td");
+    gorduraTd.classList.add("info-gordura");
     var imcTd = document.createElement("td");
+    imcTd.classList.add("info-imc");
 
     nomeTd.textContent = nome;
     pesoTd.textContent = peso;
@@ -58,9 +64,10 @@ botaoAdicionar.addEventListener("click", function(event){
     pacienteTr.appendChild(pesoTd);
     pacienteTr.appendChild(alturaTd);
     pacienteTr.appendChild(gorduraTd);
+    pacienteTr.appendChild(imcTd);
 
     var tabela = document.querySelector("#tabela-pacientes");
     tabela.appendChild(pacienteTr);
-    // console.log(pacienteTr);
+    console.log(pacienteTr);
 });
 //console.log(IMC);
