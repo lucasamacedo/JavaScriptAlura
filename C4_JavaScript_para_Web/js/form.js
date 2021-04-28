@@ -5,18 +5,36 @@ botaoAdicionar.addEventListener("click", function(event){
     
     var paciente = obtemPacienteDoForm(form);
 
-    pacienteTr = montaTr(paciente);
+    var pacienteTr = montaTr(paciente);
 
-    if(!validaPaciente(paciente)){
-        console.log("Paciente inválido");
-        return; // sai da função antes de preencheer a tabela
+    var erros = validaPaciente(paciente);
+
+    if(erros.length > 0){
+        exibeMensagemDeErro(erros);
+        return;
     }
 
     var tabela = document.querySelector("#tabela-pacientes");
     tabela.appendChild(pacienteTr);
 
     form.reset();
+    mensagensErro = document.querySelector("#mensagens-erro");
+    limpaElementoHTML(mensagensErro);
 });
+
+function exibeMensagemDeErro(erros){
+    var ul = document.querySelector("#mensagens-erro");
+    ul.innerHTML = "";
+    erros.forEach(function(erro){
+        var li = document.createElement("li");
+        li.textContent = erro;
+        ul.appendChild(li);
+    });
+}
+
+function limpaElementoHTML(mensagensErro){
+    mensagensErro.innerHTML = "";
+}
 
 function obtemPacienteDoForm(form){
     var paciente = {
@@ -50,7 +68,12 @@ function montaTd(dado, classe){
 }
 
 function validaPaciente(paciente){
-    if(validaPeso(paciente.peso))
-        return true;
-    return false;
+    var erros = [];
+    if(paciente.nome.length == 0) erros.push("Por favor, insira o nome do paciente");
+    if(paciente.gordura.length == 0) erros.push("Por favor, insira a gordura corpórea");
+    if(paciente.peso.length == 0) erros.push("Por favor, insira o peso do paciente");
+    if(paciente.altura.length == 0) erros.push("Por favor, insira a altura do paciente");
+    if(!validaPeso(paciente.peso)) erros.push("O peso é inválido!");
+    if(!validaAltura(paciente.altura)) erros.push("A altura é inválida!");
+    return erros;
 }
